@@ -10,6 +10,7 @@
     --flex-mobile: flex;
     --direction-mobile: flex;
     --image-only-mobile: none;
+    --dinamic-aling: start;
 }
 
 /* ------------------------------
@@ -30,6 +31,9 @@ main{
     margin-top: 130px;
 }
 
+h1{
+    font-weight: 600;
+}
 /* ------------------------------
    Estilização do Carousel
 --------------------------------- */
@@ -61,6 +65,7 @@ main{
 
 .nav-item {
     margin: 0 10px;
+    font-size: 18px;
 }
 
 .nav-link:hover {
@@ -137,7 +142,7 @@ main{
     width: 100%;
     font-size: 1.9rem;
     position: relative;
-    margin-bottom: 15vw;
+    margin-bottom: 12vw;
 }
 
 
@@ -211,7 +216,6 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #BC68A1;
     padding: 20px;
 }
 
@@ -268,12 +272,17 @@ main{
     transform: scale(1.1); /* Aumenta a foto */
     filter: brightness(95%);
 }
+
+.cards:hover{ img{
+    transform: scale(1.1); /* Aumenta a foto */
+    filter: brightness(95%);
+}}
 /* ------------------------------
    Seção Impacto Social
 --------------------------------- */
 
 .impacto-social {
-    background: #E77F56;
+    background: linear-gradient(90deg, #fac14e, #F2A444, #f16d50, #c76873, #8d387f);
     color: #ffffff;
     text-align: center;
     padding: 40px 10px;
@@ -300,6 +309,20 @@ main{
     flex: 1;
     max-width: 300px;
     text-align: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    padding: 20px;
+    margin: 25px;
+}
+
+.metrica:hover{
+    background: rgba(0, 0, 0, 0.3);
+    border: solid 3px #ffeb54bb;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    /*transform: scale(1.05);*/
+    cursor: pointer;
+    padding: 20px;
 }
 
 .metrica span {
@@ -311,7 +334,7 @@ main{
 
 .metrica p {
     font-size: 1rem;
-    margin-top: 5px;
+    margin-top: 2px;
 }
 
 .titulo-com-linha {
@@ -324,9 +347,29 @@ main{
    Sobre Curso
 --------------------------------- */
 
+.imgcor{
+    height: 500px;
+    width: auto;
+}
+
+.sobreimg{
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+
 .curso-sobre{
-    display: var(--direction-mobile);
+    display: flex;
+    flex-direction: var(--direction-mobile);
     align-items: center;
+}
+
+.info-meio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
 }
 
 .sessão-info{
@@ -344,7 +387,7 @@ main{
 }
 
 .background-image{
-    display: flex;
+    display: var(--flex-mobile);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -376,14 +419,36 @@ main{
 }
 
 /* ------------------------------
+   Rodapé
+--------------------------------- */
+
+.footer-pagina{
+    width: 100%;
+    background-color: #000000;
+    flex-direction: var(--direction-mobile);
+    color: white;
+    height: 150px;
+    position: relative;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+
+/* ------------------------------
    Responsividade
 --------------------------------- */
+
+.dinamic-aling{
+    text-align: var(--dinamic-align);
+}
 
 .mobile-image{
     display: var(--image-only-mobile);
     width: 100%;
     justify-content: center;
     align-items: center;
+    margin: 0;
 }
 
 .educandos-mobile{
@@ -391,10 +456,15 @@ main{
 }
 
 @media (max-width: 992px) {
+    .card-info{
+        background-color: #973773;
+    }
+
     :root{
         --flex-mobile: none;
         --direction-mobile: column;
         --image-only-mobile: flex;
+        --dinamic-align: center;
     }
 
     .cards-container{
@@ -410,6 +480,10 @@ main{
         border-radius: 0;
         font-size: 1rem;
         padding: 5vw 5vw 0;
+    }
+
+    .info-meio{
+        width: 100%;
     }
 }
 
